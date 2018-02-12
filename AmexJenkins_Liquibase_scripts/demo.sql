@@ -6,6 +6,6 @@
 --------------------------------------------------------
 
   CREATE TABLE "DEMOJENKINS" 
-   (	"ID" NUMBER(*,0), 
-	"TESTNAME" VARCHAR2(50 BYTE)
+   (	"ID" NUMBER, 
+	"TESTNAME" VARCHAR2(50)
    )
