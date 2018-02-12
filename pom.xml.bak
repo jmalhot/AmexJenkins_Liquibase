@@ -1,0 +1,82 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <name>Database</name>
+    <description>Database Update Scripts</description>
+    <groupId>com.myproject</groupId>
+    <artifactId>database</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <!-- Common properties -->
+    <properties>
+        <liquibase.version>3.5.3</liquibase.version>
+        <!--<liquibase.propertyFileWillOverride>true</liquibase.propertyFileWillOverride>-->
+        <!--<liquibase.propertyFile>liquibase.properties</liquibase.propertyFile>-->
+        <liquibase.driver>oracle.jdbc.OracleDriver</liquibase.driver>
+        <liquibase.url>jdbc:oracle:thin:@localhost:1521/xe</liquibase.url>
+        <liquibase.username>system</liquibase.username>
+        <liquibase.password>admin</liquibase.password>
+        <liquibase.dbms>oracle</liquibase.dbms>
+        <liquibase.promptOnNonLocalDatabase>false</liquibase.promptOnNonLocalDatabase>
+        <liquibase.changeLogFile>Changelogs/master_changelog.xml</liquibase.changeLogFile>
+    </properties>
+    <build />
+    <!-- Common dependancies -->
+    <dependencies>
+	<!-- https://mvnrepository.com/artifact/oracle/ojdbc6 -->
+		<dependency>
+			<groupId>oracle</groupId>
+			<artifactId>ojdbc5</artifactId>
+			<version>11.2.0.2.0</version>
+		</dependency> 
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+            <version>3.5.3</version>
+        </dependency>
+    </dependencies>
+    <profiles>
+        <profile>
+            <id>liquibase-update</id>
+            <build>
+                <plugins>
+                    <!-- Liquibase demo-->
+                    <plugin>
+                        <groupId>org.liquibase</groupId>
+                        <artifactId>liquibase-maven-plugin</artifactId>
+                        <version>3.5.3</version>     
+                        <executions>
+                            <execution>
+                                <id>liquibase-update</id>
+                                <phase>process-test-resources</phase>
+                                <goals>
+                                    <goal>update</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>liquibase-updateSQL</id>
+            <build>
+                <plugins>
+                    <!-- Liquibase demo-->
+                    <plugin>
+                        <groupId>org.liquibase</groupId>
+                        <artifactId>liquibase-maven-plugin</artifactId>
+                        <version>${liquibase.version}</version>
+                        <executions>
+                            <execution>
+                                <id>liquibase-update</id>
+                                <phase>process-test-resources</phase>
+                                <goals>
+                                    <goal>updateSQL</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>
