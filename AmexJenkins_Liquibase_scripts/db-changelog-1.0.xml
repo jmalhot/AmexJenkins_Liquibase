@@ -9,7 +9,7 @@
 
   
     <changeSet id="19" author="cicd-jenkins">
-        <sqlFile dbms="xe"
+        <sqlFile dbms="oracle"
             encoding="utf8"
             endDelimiter="\nGO"
             path="demo1.sql"
