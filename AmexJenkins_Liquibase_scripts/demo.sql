@@ -5,7 +5,7 @@
 --  DDL for Table DEMOJENKINS
 --------------------------------------------------------
 
-  CREATE TABLE "DEMOJENKINS" 
+  CREATE TABLE "DEMOJENKINSLIQUIBASE" 
    (	"ID" NUMBER(*,0), 
 	"TESTNAME" VARCHAR2(50 BYTE)
    )
