@@ -11,7 +11,7 @@
     <changeSet id="28" author="cicd-jenkins">
         <sqlFile dbms="oracle"
             encoding="utf8"
-            endDelimiter="\n/\s*\n|\n/\s*$"
+            endDelimiter="\n/"
             path="demo.sql"
             relativeToChangelogFile="true"
             splitStatements="true"
