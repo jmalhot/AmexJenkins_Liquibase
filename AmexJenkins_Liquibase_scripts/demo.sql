@@ -9,3 +9,6 @@
    (	"ID" NUMBER, 
 	"TESTNAME" VARCHAR2(50)
    )
+   
+   GO
+   INSERT INTO DEMOJENKINS(ID, TESTNAME) VALUES(2,'SecondTest')
